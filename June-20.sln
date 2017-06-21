@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvertisementMessage", "Adv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntersectionOfCircles", "IntersectionOfCircles\IntersectionOfCircles.csproj", "{E9A24F9D-024E-4EA9-8643-062C51B83744}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AverageGrades", "AverageGrades\AverageGrades.csproj", "{B7BE929F-A03D-4D28-9D05-69E16BC8885D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{E9A24F9D-024E-4EA9-8643-062C51B83744}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9A24F9D-024E-4EA9-8643-062C51B83744}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9A24F9D-024E-4EA9-8643-062C51B83744}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7BE929F-A03D-4D28-9D05-69E16BC8885D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7BE929F-A03D-4D28-9D05-69E16BC8885D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7BE929F-A03D-4D28-9D05-69E16BC8885D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7BE929F-A03D-4D28-9D05-69E16BC8885D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
