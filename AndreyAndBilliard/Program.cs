@@ -37,24 +37,44 @@ namespace AndreyAndBilliard
 				}
 				string[] tokens = input.Split('-').ToArray();
 				string[] buyTokens = tokens[1].Split(',');
-				Customer cust = new Customer {Name = tokens[0],
-					BoughtItems = new Dictionary<string, int>()};
-				if (!products.ContainsKey(buyTokens[0]))
+				Customer cust;
+				if (customers.Select(x => x.Name).Contains(tokens[0]))
 				{
-					continue;
-				} else if (!cust.BoughtItems.ContainsKey(buyTokens[0]))
-				{
-					cust.BoughtItems[buyTokens[0]] = int.Parse(buyTokens[1]);
+					cust = customers.Find(x => x.Name == tokens[0]);
+					if (products.ContainsKey(buyTokens[0]))
+					{
+						if (!cust.BoughtItems.ContainsKey(buyTokens[0]))
+						{
+							cust.BoughtItems[buyTokens[0]] = 0;
+						}
+						cust.BoughtItems[buyTokens[0]] += int.Parse(buyTokens[1]);
+					}
 				}
-				else if (cust.BoughtItems.ContainsKey(buyTokens[0]) && products.ContainsKey(buyTokens[0]))
+				else
 				{
+					cust = new Customer
+					{
+						Name = tokens[0],
+						BoughtItems = new Dictionary<string, int>()
+					};
+					if (!products.ContainsKey(buyTokens[0]))
+					{
+						continue;
+					}
+					if (!cust.BoughtItems.ContainsKey(buyTokens[0]))
+					{
+						cust.BoughtItems[buyTokens[0]] = 0;
+					}
 					cust.BoughtItems[buyTokens[0]] += int.Parse(buyTokens[1]);
+					
+					customers.Add(cust);
 				}
+				cust.Bill = 0;
 				foreach (var kvp in cust.BoughtItems)
-				{
-					cust.Bill = kvp.Value * products[kvp.Key];
-				}
-				customers.Add(cust);
+					{
+						cust.Bill += kvp.Value * products[kvp.Key];
+					};
+	
 			}
 			var ordered = customers.OrderBy(x => x.Name);
 
